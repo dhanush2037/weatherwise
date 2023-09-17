@@ -47,10 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
               cityName: widget.locationText!),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              // Display a loading indicator while fetching data
-              return CircularProgressIndicator();
+              return Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              // Handle errors here
               return Text('Error: ${snapshot.error}');
             } else if (!snapshot.hasData) {
               // Handle cases where data is not available
@@ -109,26 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           Container(
-                            // child: TextField(
-                            //   decoration: InputDecoration(
-                            //     fillColor: Color(0xFFFDFCFC),
-                            //     suffixIcon: Icon(
-                            //       Icons.search,
-                            //       color: Color(0xFFC4C4C4),
-                            //     ),
-                            //     contentPadding: EdgeInsets.symmetric(horizontal: 16),
-                            //     hintText: 'Search Location',
-                            //     hintStyle: GoogleFonts.poppins(
-                            //         fontWeight: FontWeight.w400,
-                            //         fontSize: 15,
-                            //         height: 1.5,
-                            //         color: Color(0xFFC4C4C4)),
-                            //     border: OutlineInputBorder(
-                            //       borderRadius: BorderRadius.circular(8),
-                            //       borderSide: BorderSide.none,
-                            //     ),
-                            //   ),
-                            // ),
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: IconButton(
