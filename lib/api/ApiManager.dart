@@ -7,12 +7,13 @@ class ApiManager {
   static Future<Weather> getCurrentWeatherDetails(
       {String cityName = "Mangalore"}) async {
     List<Hour> forecastList = [];
+    String apiKey = "YOUR API key";
     // var response = await http.get(
     //   Uri.parse(
     //       'http://api.weatherapi.com/v1/current.json?key=8da1a1533b0d4f1a8ac84448231509&q=mangalore&aqi=no'),
     // );
     var response1 = await http.get(Uri.parse(
-        'http://api.weatherapi.com/v1/forecast.json?key=8da1a1533b0d4f1a8ac84448231509&q=${cityName}&days=1&aqi=no&alerts=no'));
+        'http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=1&aqi=no&alerts=no'));
     //print(response1.body);
     if (response1.statusCode == 200) {
       final Map<String, dynamic> weatherData = json.decode(response1.body);
